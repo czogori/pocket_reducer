@@ -1,0 +1,10 @@
+<%= if !@authorized? do %>
+  <a href="<%= page_path(@conn, :auth) %>" 
+    class="btn btn-default btn-lg btn-block">Auth with Pocket</a>
+<% else %>
+  <%= if @fetched? do %>
+    <h2><%= @items_count %> unread items has been found</h2>
+  <% else %>
+    <h2><%= @welcome_text %></h2>  
+  <% end %>
+<% end %>

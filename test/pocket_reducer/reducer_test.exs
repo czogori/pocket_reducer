@@ -1,7 +1,7 @@
 defmodule PocketReducer.ReducerTest do
   use ExUnit.Case
 
-  alias PocketReducer.Reducer
+  alias PocketReducer.Filter
 
   @now DateTime.utc_now() |> DateTime.to_unix()
   @year 60 * 60 * 24 * 365
@@ -15,7 +15,7 @@ defmodule PocketReducer.ReducerTest do
   ]
 
   test "takes an older items than a year" do
-    items = Reducer.take_older_than_year(@items)
+    items = Filter.take_older_than_year(@items)
     assert Enum.count(items) == 1
   end
 end
